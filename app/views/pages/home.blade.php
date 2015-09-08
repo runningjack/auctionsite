@@ -5,10 +5,10 @@ use \Illuminate\Support\Facades\DB;
 @extends("layouts.default")
 @section("content")
 <div class="space10">&nbsp;</div>
-<div class="dg">
+<!--<div class="dg">
     <div class="col-4">
         <div class="beta-banner">
-            <img src="<?php echo ASSETS_URL?>/uploads/images/banners/banner2.png" alt="">
+            <img src="<?php /*echo ASSETS_URL*/?>/uploads/images/banners/banner2.png" alt="">
             <h2
                 class="beta-banner-layer text-right"
                 data-animo='{
@@ -53,7 +53,7 @@ use \Illuminate\Support\Facades\DB;
     </div>
     <div class="col-4">
         <div class="beta-banner">
-            <img src="<?php echo ASSETS_URL?>/uploads/images/banners/banner3.png" alt="">
+            <img src="<?php /*echo ASSETS_URL*/?>/uploads/images/banners/banner3.png" alt="">
             <h2
                 class="beta-banner-layer text-right"
                 data-animo='{
@@ -99,7 +99,7 @@ use \Illuminate\Support\Facades\DB;
 
     <div class="col-4">
         <div class="beta-banner">
-            <img src="<?php echo ASSETS_URL?>/uploads/images/banners/banner3.png" alt="">
+            <img src="<?php /*echo ASSETS_URL*/?>/uploads/images/banners/banner3.png" alt="">
             <h2
                 class="beta-banner-layer text-right"
                 data-animo='{
@@ -142,7 +142,7 @@ use \Illuminate\Support\Facades\DB;
                 >Shop Now</a>
         </div>
     </div>
-</div>
+</div>-->
 
 
 
@@ -198,13 +198,15 @@ use \Illuminate\Support\Facades\DB;
                     <div class="single-item-body">
                         <p class="single-item-title">{{$latest->title}}</p>
                         <p class="single-item-price">
-                            <span class="beta-sales-price"> &#8358;{{number_format($latest->price,2,".",",")}}</span>
-                            <span class="beta-sales-price"> &#8358;{{number_format($latest->price,2,".",",")}}</span>
+                            <span class="beta-comp beta-sales-price"> &#8358;{{number_format($latest->price,2,".",",")}}</span>
+                            <br>
+                            <span class="beta-comp beta-time" data-start-date="" data-end-date="{{$latest->end_date}}" style="font-size: 12px">Closing: {{$latest->end_date}} {{$latest->end_time}} </span>
+                            <br>
                         </p>
                     </div>
                     <div class="single-item-caption">
                         <!--<a class="add-to-cart pull-left" href="javascript:void(0)" pid="{{$latest->id}}"><i class="fa fa-shopping-cart"></i></a>-->
-                        <a class="beta-btn primary" href="{{ASSETS_URL}}/product/details/{{$latest->id}}">Details <i class="fa fa-chevron-right"></i></a>
+                        <a class="beta-btn primary" href="{{ASSETS_URL}}/product/details/{{$latest->id}}">Bid Now <i class="fa fa-chevron-right"></i></a>
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -259,7 +261,10 @@ use \Illuminate\Support\Facades\DB;
                 <div class="single-item-body">
                     <p class="single-item-title">{{$latest->title}}</p>
                     <p class="single-item-price">
-                        <span class="beta-sales-price">Current Price: &#8358;{{number_format($latest->price,2,".",",")}}</span>
+                        <span class="beta-comp beta-sales-price"> &#8358;{{number_format($latest->price,2,".",",")}}</span>
+                        <br>
+                        <span class="beta-comp beta-time" data-start-date="" data-end-date="{{$latest->end_date}}" style="font-size: 12px">Closing: {{$latest->end_date}} {{$latest->end_time}} </span>
+                        <br>
                     </p>
                 </div>
                 <div class="single-item-caption">

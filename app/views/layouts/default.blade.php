@@ -148,6 +148,30 @@ $page_css[] = "your_style.css";
 </script>
 <script>
     jQuery(document).ready(function($) {
+
+function(eventTime,element){
+
+        var currentTime = Math.round(new Date().getTime()/1000.0);
+        eventTime = Math.round(new Date(eventTime).getTime()/1000.0)
+        var leftTime = eventTime - currentTime;//Now i am passing the left time from controller itself which handles timezone stuff (UTC), just to simply question i used harcoded values.
+        var duration = moment.duration(leftTime, 'seconds');
+        var interval = 1000;
+
+        setInterval(function(){
+            // Time Out check
+            if (duration.asSeconds() <= 0) {
+                clearInterval(intervalId);
+                window.location.reload(true); #skip the cache and reload the page from the server
+            }
+
+            //Otherwise
+            duration = moment.duration(duration.asSeconds() - 1, 'seconds');
+           element.text(duration.days() + 'd:' + duration.hours()+ 'h:' + duration.minutes()+ 'm:' + duration.seconds() + 's');
+        }, interval);
+
+
+}
+
         'use strict';
         try {
             if ($(".animated")[0]) {
@@ -229,8 +253,6 @@ $page_css[] = "your_style.css";
 
             })
         })
-
-
 
         $(".add-to-cart").each(function(){
             var cartData = "";
